@@ -5,38 +5,37 @@ Claire Duvallet, PhD
 
 In sharp contrast with some unfounded fears that open data will lead to the rise of "research parasites," enabling re-analyses of existing datasets by making them publicly available adds substantial value to scientific research (NEJM paper).
 Publicly available raw data allows researchers to ask and answer new questions, testing their hypotheses \textit{in silico} without the need for costly new studies.
-New studies can also be compared with existing work to determine which findings hold across different studies and contexts.
 In my PhD, I performed a meta-analysis of 28 gut microbiome studies, where I downloaded and reprocessed raw sequencing data to look at patterns of associations between the gut microbiome and 10 different diseases (Duvallet et al. 2018).
 When I first embarked on this project, I thought it would be straight-forward  to use existing data to answer some low-hanging-fruit questions in my field.
-Of course, it wasn't: through this project, I learned that performing a meta-analysis is much more than a simple `stamp collection` endeavor that anyone with basic knowledge of computational tools could do, but is rather a unique and valuable contribution to the field (Glass 1976).
+But I soon learned that performing a meta-analysis is much more than a simple `stamp collection` endeavor that anyone with basic knowledge of computational tools could do, and is rather a unique and valuable contribution to the field (Glass 1976).
 As the 2019 Junior Research Parasite, I was recognized for my work and given this opportunity to share some of the lessons I learned as a parasite here.
 
 ## Data
 
 # 1. Research parasites are data detectives
 
-The first step to becoming a research parasite is to learn become a data detective, adept at finding, downloading, and reprocessing data.
-While public databases and literature search engines ease the process of finding data, identifying comprehensive datasets for specific research questions remains challenging.
+The first step to becoming a research parasite is to learn become a data detective.
+While public databases and search engines ease the process of finding data, identifying comprehensive datasets for specific research questions remains challenging.
 In my meta-analysis, I relied on NCBI and Google Scholar literature searches, but also supplemented heavily with papers that I found from reviews and by following chains of references from individual studies.
 
-I learned to carefully scrutinize the paper and its supplementary materials to find links to raw data and metadata, information which was often scattered through multiple supplementary files.
-Eventually I gained a short-hand intuition: if a ctrl-F for certain data-related keywords was not fruitful, I knew I should probably go ahead and email the authors.
-But even that required some detective work, finding up-to-date email addresses and, at times, also finding contact information for the first author, who might be more inclined to reply to my email.
+I learned to carefully scrutinize papers and their supplementary materials to find links to raw data and metadata, information which was often scattered throughout the paper and supplement.
+I eventually gained some intuition: if a ctrl-F for certain data-related keywords was not fruitful, I knew I should probably go ahead and email the authors.
+But even that required some detective work to find up-to-date email addresses and, at times, contact information for the first author, who might be more inclined to reply to my email.
 Through every step of the process, I learned to pay attention to strategic details and scour available information for any clues that might help me find what I needed.
 
 # 2. Data without metadata is useless
 
-It turns out that gathering all of the metadata required to reprocess and reanalyze a dataset is actually one of the most difficult parts of a research parasite's work.
-As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc).
+Gathering all of the metadata required to reprocess and reanalyze a dataset is one of the most difficult parts of a research parasite's work.
+As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc). [could make a figure/schematic here]
 Without any one of these, it is impossible to do a re-analysis and the entire dataset is useless.
 Here also, there are many tricks to learn, for example: looking at the raw sequencing data itself to infer the presence or absence of primers or barcodes, making educated guesses about disease status from patterns in the sample IDs, and learning to look in all the nooks and crannies of SRA or ENA sample descriptors.
 
 # 3. Organize yourself for success
 
 After the data has been acquired and re-processed, tracking everything that is done to each dataset is another underestimated task of its own.
-Here, organization a project's directory and file structure intentionally can help.
-More specifically, projects can be organized such that the source code is separate from the data, and each step of the analysis process produces intermediate files.
-Such clear organization makes it easier to: figure out what files are what, even after a long time away from the project and implement an automated pipeline workflow for your entire analysis.
+Here, intentional file structures and project organization can help.
+More specifically, source code should be separated from the data, and each step of the analysis process should produce intermediate files.
+Clear project organization makes it easier to figure out what files are what, even after a long time away from the project, and to implement an automated pipeline workflow for your entire analysis.
 It also provides encouragement to write parallel and modular scripts, an important trick for research parasites to adopt and which I learned the hard way.
 In my meta-analysis, I had one script that performed quality control on all 28 of my datasets in one large for loop.
 That meant that each time I found something wrong in my processing for one dataset, I had to re-run the data cleaning for _all_ my data -- a time-consuming process that was a huge pain.
