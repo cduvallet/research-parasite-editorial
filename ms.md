@@ -15,21 +15,21 @@ As the 2019 Junior Research Parasite, I was recognized for my work and given thi
 
 First, a research parasite must become a data detective.
 While databases and search engines ease the process of finding data, identifying a comprehensive list of datasets for niche research questions remains challenging.
-In my meta-analysis, I learned to supplement my database searches by chasing down references from other papers.
+In my meta-analysis, I learned to supplement my database searches by chasing down references from papers and reviews.
 I became skilled at scrutinizing papers to find links to raw data and metadata, information which was often scattered throughout the paper and supplement.
 I eventually gained some intuition: if a ctrl-F for certain data-related keywords was not fruitful, I knew I should probably go ahead and email the authors.
-But even that required some detective work to find up-to-date email addresses and, at times, contact information for the first author, who might be more inclined to reply to my email.
+But even that required detective work in order to find up-to-date email addresses and, at times, contact information for the first author, who might be more inclined to reply to my email.
 Through every step of the process, I learned to notice strategic details and scour available information for any clues that might help me find what I needed.
 
 # 2. Data without metadata is useless
 
-Without all of the relevant technical and clinical metadata, it is impossible to do a re-analysis and the entire dataset is useless.
-As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc). [could make a figure/schematic here]
+Without all of the relevant technical and clinical metadata, it is impossible to re-analyze data and the entire dataset becomes useless.
+As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc). [could make a figure/schematic here, and potentially even show where things failed in my meta-analysis]
 Here also, there are many tricks to learn, for example: looking at raw sequencing data to infer the presence or absence of primers or barcodes, making educated guesses about disease status from sample IDs, and looking in all the nooks and crannies of SRA or ENA sample descriptors.
 
 # 3. Organize yourself for success
 
-As research parasites, we make mistakes and often need to start analyses over from scratch many times.
+As research parasites, we make mistakes and need to start analyses over from scratch many times.
 Intentional project and file organization can ensure that starting over is not a catastrophe each time.
 More specifically, separating source code from the data and producing intermediate files for each step of an analysis is key to unlocking parasitic productivity (cite cookie cutter data science).
 Clear project organization makes it easier to remember what different files are, to implement automated pipeline workflows, and to write parallel and modular scripts.
@@ -42,23 +42,23 @@ I've learned from this mistake, and now attempt to maximize the modularity of my
 
 In a way, README's are a research parasite's lab notebook.
 Re-analyzing other people's datasets often means long and convoluted paths to insight.
-It's important to document every step along this path: how the data was downloaded and processed, including any strange things that happened and why certain decisions were made; how the scripts and data are organized, and where all the (raw) data lives; and how others can use or build upon what has done.
+It's important to document every step along this path: how the data was downloaded and processed, including any strange things that happened and why certain decisions were made; how the scripts and data are organized and where all the (raw) data lives; and how others can use or build upon what has been done.
 
 As a research parasite, the most likely beneficiary of thorough documentation is future-you, checking your work before submission, looking for code to do something you know you've already figured out, or going back to answer a question that woke you up in a cold sweat at 2 am.
-This was another lesson learned the hard way for me: I remember going back to finalize processing on datasets I'd downloaded over a year prior, and not finding any clues from myself to remember what I did.
-In almost all of these cases, it was faster to re-download the data from scratch than to time-travel into the past and remember what I had been thinking.
+This was another lesson learned the hard way for me: I remember going back to finalize processing on datasets I'd downloaded over a year prior, and not finding any clues from myself to indicate what I'd done.
+In all of these cases, it was faster to re-download the data from scratch than to time-travel into the past and remember what I had been thinking.
 
-# 5. The life-changing magic of Makefiles and pipelining workflows
+# 5. The life-changing magic of Makefiles
 
 In my opinion, the most revolutionary parasitic tactic of all is pipelining workflows with Makefiles.
-Broadly, Makefiles contain all of the instructions to reproduce every part of an analysis and are paired with a software program that reads the instructions in the Makefile to automatically re-run all parts of the analysis which need to be updated.
+Broadly, Makefiles contain all of the instructions to reproduce every part of an analysis and are usually paired with a software program that reads the instructions in the Makefile to automatically re-run all parts of the analysis which need to be updated (cite nature piece on workflows).
 Makefiles are incredibly useful because they enable the re-making of an entire analysis and - more importantly - they are by definition a documentation of all the steps taken.
 They quite literally answer the question: "wait, how did I do that again?"
 
-Makefiles also make the review process much easier, saving time and freeing research parasites from tedious double-checking of details.
-With a Makefile, it is easy to go back, find, and double-check individual steps throughout an entire analysis, as opposed to digging through folders of spaghetti code for the one thing that's needed.
-Adding new analyses also becomes easier, as new scripts can just be plugged into the Makefile and use the intermediate analysis files already created from other steps in the workflow seamlessly.
-And most importantly, Makefiles take care of all of the details, automatically updating figures and tables when their underlying inputs change, saving research parasites many hours of tedious detail-checking.
+Makefiles also make the review process much easier, saving time and freeing research parasites from tedious time-consuming details.
+With a Makefile, it is easy to go back, find, and double-check individual steps in an entire analysis, as opposed to digging through folders of spaghetti code without guidance.
+Adding new analyses also becomes easier, as new scripts can be seamlessly plugged into the Makefile, using intermediate analysis files already created from other steps in the workflow.
+And most importantly, Makefiles take care of the details, automatically updating figures and tables when their underlying inputs change, saving research parasites many hours of tedious detail-checking.
 
 # 6. Computational best practices as an act of radical self-love
 
@@ -79,19 +79,15 @@ That leaves a lot of room for research parasites to come in and ask different qu
 # 8. Practice humility and broaden your perspective
 
 Finally, the biggest lesson I learned from my life as a parasitic PhD student was humility.
-As a research parasite, it's easy to get self-righteous and angry whenever the data or metadata isn't easily accessible, but at the end of the day it's not very productive.
-Especially as junior PhD students, we must recognize that what we see as additional N's crucial to our analyses and thesis, clinicians see as real people who gave their time and samples to advance research, and in some cases, as patients who can be deeply suffering.
+As a research parasite, it's easy to get self-righteous and angry whenever the data or metadata isn't easily accessible, but at the end of the day it's not productive.
+Especially as junior PhD students, we must recognize that what we view as just additional N's in our analyses, clinicians see as real people who gave their time and samples to advance research, and in some cases, as patients who can be deeply suffering.
 
 Humility and empathy is also important to recognize that while we stand on our soapboxes advocating for open and reproducible science, it's actually really difficult to do well.
-An easy example is data sharing: parasites might like to grumble at how hard it is to find and download raw data, but depositing data is itself a complicated process.
-Data generation is a collaborative, lengthy process, and the person depositing the data is rarely if ever involved in every step of the data generation.
-Even after downloading and processing 28 datasets, I myself was incredibly confused when I needed to deposit data for a different project that I worked on, and I'm sure I missed some important information that will make a future parasite grumble herself.
+An example is data sharing: parasites might like to grumble at how hard it is to find and download raw data, but depositing data is itself a complicated process.
+Data generation is a collaborative, lengthy process, and the person depositing the data is rarely involved in every step of the data generation.
+Even after downloading and processing these 28 datasets, I myself was incredibly confused when I needed to deposit data for a different project that I worked on, and I'm sure I missed some important information that will make a future parasite grumble herself.
 Thus, not only do we need to require data sharing, but we also need to make it easier, more accessible, and more amenable to improvements and feedback, in addition to encouraging and rewarding those who do share their data (cite research symbionts).
 And as we're doing our parasitic research, we need to keep in mind that we are just one small part of an entire ecosystem, and that as parasites, we depend on our hosts to survive.
-
-# Conclusions
-
-Thanks to people leading the way to recognize and value this sort of work.
 
 # References
 
@@ -100,154 +96,3 @@ https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/
 https://www.nature.com/articles/d41586-019-02619-z
 
 https://www.tidyverse.org/articles/2017/12/workflow-vs-script/
-
-## Or... make it a checklist? Lessons learned:
-
-1. Research parasites are data detectives
-2. Data without metadata is useless
-3. Organization your files sets you up for success
-4. README's are a research parasite's lab notebook
-5. The life-changing magic of pipelining
-6. Computational work as an act of radical self-love
-7. Democratized software catalyzes data generation by non-specialists
-8. Practice humility and perspective: without your host, you die
-
-
-
-# Notes/drafts
-
----
-In my meta-analysis, I used generic GNU Make as my pipelining tool, though if I were to undertake another parasitic research project, I'd probably use a more modern and user-friendly pipelining tool like Snakemake (cite nature comment on pipelining, snakemake).
-
-Even though learning to write a Makefile was a lot of work, it was absolutely worth it and made my life much easier.
-
-Beyond actually enabling the re-making of an analysis, Makefiles are exceptionally important because they are, by definition, a documentation of all the steps taken for an analysis.
-
-More than once while my paper was under review, I panicked and wondered if I'd messed up a processing or analysis step.
-With my Makefile, it was easy to go back and find out where I'd done that step and check if everything was doomed as I'd feared.
-It never was, and what would have been a harrowing half-day of frantically going back through my spaghetti code usually got quieted down after only a few minutes of poking through my Makefile.
-
-Importantly, having a functional Makefile also made the review process for my paper so much easier.
-I knew exactly which files to update or which scripts to re-run when reviewers asked for minor changes to existing analyses.
-
-
----
-
-A core theme that has emerged from my thesis work is that re-analyzing existing microbiome datasets can add substantial value to our field.
-One of my personal conclusions from the meta-analysis is that new cross-sectional gut microbiome studies should be regularly contextualized within the existing published body of work, almost as mini meta-analyses of their own.
-Now that microbiome datasets are more readily available and bioinformatics tools to process and analyze them are becoming very accessible, I hope that researchers make it a habit to ask: are these associations replicated in independent patient cohorts? And: are they specific to my disease of interest or are they part of a non-specific response to health and disease?
-
-I also found the value-add of re-analyzing datasets especially relevant in microbiome research led by clinicians.
-For example, the original IBD FMT trials that I re-analyzed in Chapter \ref{chap:donor-selection} did not thoroughly investigate potential donor effects on patient response in their original studies.
-This is expected in part because donor heterogeneity was not usually a primary research question of interest, and also because the trials were not powered for such analyses.
-However, now that multiple IBD FMT trials have been published with paired patient and donor microbiome sequencing data, hypotheses about what leads to improved patient response can be tested \textit{in silico} (as we did for butyrate producer abundance in Chapter \ref{chap:donor-selection}).
-In Chapter \ref{chap:meta-analysis}, many of my datasets were pulled from studies led by clinical researchers who may not have had access to the bioinformatics and statistical expertise to fully interrogate disease associations within their datasets.
-By making their data publicly available, their work continued to contribute new knowledge to the field.
-
-Moving forward, I hope and expect that researchers continue to make their raw data publicly available and that re-analyses of such data become standard in the field.
-Publicly available raw data allows researchers to ask and answer new questions, testing their hypotheses \textit{in silico} without the need for costly new studies.
-New studies can also be compared with existing work to determine which of their findings hold across different studies and which are specific to their specific study.
-However, using published data in new contexts comes with challenges.
-Another major challenge is data availability, and specifically clinical metadata like patient disease diagnosis.
-Through this work, I have come to realize that raw data without its associated metadata is in almost all cases useless.
-Given these challenges, standards for sharing data which respect patient privacy, clinicians' efforts for patient recruitment, and the needs of computational biologists will need to be agreed upon and upheld as a community.
-
-### Finding knowledge in information
-
-A turning point in my thesis came when I read Gene Glass's 1976 paper coining the term `meta-analysis` \cite{glass-1976}.
-In it, Glass argues for the underappreciated importance of consolidating and synthesizing information into knowledge, prizing work that aims to find meaning and draw conclusions from disparate existing studies.
-This was a turning point in my thesis for two reasons.
-First, it was the moment I became truly proud of my work, especially the meta-analysis in Chapter 3: I realized that it was not just some sort of microbiome ``stamp collection`` endeavor that anyone with basic knowledge of computational tools could do, but was instead difficult and valuable work that I had uniquely contributed to.
-After reading this piece, my perspective on my thesis work changed: before, I sometimes felt that the inherent limitations of computational work meant that projects like mine were not quite as valuable as theses which develop novel experimental methods or generate new data directly testing biological hypotheses.
-Now, I recognize that they are also invaluable work on their own merit.
-
-Second, reading Glass's words helped me recognize a uniting theme in all of my work: finding the ``knowledge in the information.``
-I realized that in each project presented in this thesis, I had not just mined the data to find statistical associations, but rather to interpret the associations I found and chase them all the way to their potential clinical or public health implications.
-I hope that as we move forward in this exciting and vibrant field, microbiome researchers collectively become less satisfied with simply reporting new information, instead emphasizing and valuing efforts that synthesize existing knowledge and generate new insights that lead more directly to clinical impact.
-
-# Old text
-
-
-
-In clinical trials, microbiome data analyses are usually secondary endpoints which
-
-because they reduce the cost of including microbiome data in a study.
-In many cases, the microbiome data is a secondary endpoints,
-For example, many clinical trials are starting to include microbiome analyses as secondary endpoints.
-
-
-
-The interesting thing is that many of these researchers generate incredibly rich datasets and then use their data to answer only a few simple questions which are directly related to their primary research question.
-For example, clinical trials usually focus on clinical endpoints but are beginning to include microbiome data to spice up their study.
-Accessible analysis tools changes the cost-benefit analysis for the extra spice: now that learning to process and analyze the data is easier, it's worth adding in that extra little bit to increase the interestingness of the study.
-
- which was completely associated
-
-Many datasets which I failed to acquire were
-
-3. in SRA but no metadata
-1. weird data format
-1. no replicate IDs
-only 3/16 authors I had to email ended up getting me the full dataset I needed.
-
-
-
-When data was not  available,
-
-In order to successfully become a research parasite, you have to get really good at becoming a data detective.
-The data detective has two main roles: find the data, and then interpret it.
-
-Although many databases make finding publicly available data, identifying data the is suitable to your research question of interest is still quite challenging.
-In my case, many studies of interest were performed by clinicians and published in journals without data sharing agreements.
-
-
-The first step to re-analyzing data is to download and reprocess it yourself.
-In my study, I identified
-
-The most important lesson I learned from this work is that data without metadata is useless.
-
-
-
-
-
-
-In my study, I performed an ad-hoc literature review to identify datasets
-
-
-I also gained skills and perspectives that have since enabled to be a much more effective computational scientist and official "Junior Research Parasite."
-
-
-
-
-I was awarded the "Junior Research Parasite" award for this work, and in the process also learned many invaluable lessons about being part of the open data and open science community.
-
-
-
-And through this work, I've also come to understand many additional lessons.
-
-, reproducible and open science, and
-
-re-analyzing existting datasets adds substantial value to the field.
-
-This is the work of "research parasites"
-
-However, using published data in new contexts comes with challenges.
-"Research parasites"
-
-I received the Junior Research Parasite award earlier this year for a meta-analysis of 28 gut microbiome studies, where I downloaded and reprocessed raw sequencing data to look at patterns of associations between the gut microbiome and 10 different diseases (Duvallet et al. 2018).
-When I embarked on this project, I thought it would be a straight-forward journey to use existing data to answer some low-hanging fruit scientific questions.
-I've since learned that performing a meta-analysis is much more than a simple `stamp collection` endeavor that anyone with basic knowledge of computational tools could do, but is rather a unique and valuable contribution to the field.
-And through this work, I've also come to understand many additional lessons.
-
-
-
-One major challenge is data availability, and specifically clinical metadata like patient disease diagnosis.
-Through this work, I have come to realize that raw data without its associated metadata is in almost all cases useless.
-
-In fact, a core theme that emerged from my thesis work is that re-analyzing existting datasets adds substantial value to the field.
-
-I realized that it was not just some sort of microbiome ``stamp collection`` endeavor that anyone with basic knowledge of computational tools could do, but was instead difficult and valuable work that I had uniquely contributed to.
-
-Years later, I realized
-
-A core theme that has emerged from my thesis work is that re-analyzing existing microbiome datasets can add substantial value to our field.
