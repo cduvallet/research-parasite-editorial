@@ -2,13 +2,23 @@
 
 Claire Duvallet
 
+## Abstract
+
+Secondary analysis is an important part of the scientific process, solidifying and expanding knowledge through re-analyses of existing datasets.
+However, researchers performing secondary analyses must develop specific skills to be successful, and can benefit from adopting some computational best practices.
+Recognizing this work is also key to building and supporting a community of researchers who contribute to the scientific ecosystem through secondary analyses.
+The Research Parasite Awards are one such avenue, celebrating outstanding contributions to the rigorous secondary analysis of data.
+As the recipient of 2019 Junior Research Parasite, I was asked to provide some perspectives on life as a research parasite, which I share in this commentary.
+
 ## Introduction
 
 In sharp contrast with some unfounded fears that open data will lead to the rise of "research parasites" (Longo 2016), publicly available raw data adds substantial value to scientific research, allowing researchers to ask and answer new questions and to test hypotheses _in silico_ without the need for costly new studies.
 In my PhD, I performed a meta-analysis of 28 gut microbiome studies, where I downloaded and reprocessed raw sequencing data to look at patterns of associations between the gut microbiome and 10 different diseases (Duvallet et al. 2017).
-When I first embarked on this project, I thought it would be straight-forward  to use existing data to answer some low-hanging-fruit questions in my field.
-But I soon learned that performing a meta-analysis is more than a "stamp collection" endeavor, and is rather a unique and valuable contribution to the field (Glass 1976).
-As the 2019 Junior Research Parasite, I was recognized for my work and given this opportunity to share some of the lessons I learned as a parasite here.
+When I first embarked on this project, I thought it would be straightforward  to use existing data to answer some low-hanging-fruit questions in my field.
+But I soon learned that performing a meta-analysis is more than a "stamp collection" endeavor, and is rather a unique, difficult, and valuable contribution to the field (Glass 1976).
+As the recipient of the 2019 Junior Research Parasite, I was recognized for my contribution to the rigorous secondary analysis of microbiome data and given this opportunity to share some of the lessons I learned (Greene 2017).
+
+Fig 1: What is a research parasite? [Casey's award timeline infographic]
 
 ## 1. Research parasites are data detectives
 
@@ -23,15 +33,20 @@ Through every step of the process, I learned to notice strategic details and sco
 ## 2. Data without metadata is useless
 
 Without all of the relevant technical and clinical metadata, it is impossible to re-analyze data and the entire dataset becomes useless.
-As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc). [could make a figure/schematic here, and potentially even show where things failed in my meta-analysis]
+As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc).
 Here also, there are many tricks to learn, for example: looking at raw sequencing data to infer the presence or absence of primers or barcodes, making educated guesses about disease status from sample IDs, and looking in all the nooks and crannies of SRA or ENA sample descriptors.
+
+Figure 2: data components required for a successful re-analysis
+[could make a figure/schematic here, and potentially even show where things failed in my meta-analysis]
 
 ## 3. Organize yourself for success
 
 As research parasites, we make mistakes and need to start analyses over from scratch many times.
 Intentional project and file organization can ensure that starting over is not a catastrophe each time.
-More specifically, separating source code from the data and producing intermediate files for each step of an analysis is key to unlocking parasitic productivity (Cookie Cutter Data Science, Wilson et al. 2016)[could also have a figure here, showing a sample project structure].
+More specifically, separating source code from the data and producing intermediate files for each step of an analysis is key to unlocking parasitic productivity (Cookie Cutter Data Science, Wilson et al. 2016).
 Clear project organization makes it easier to remember what different files are, to implement automated pipeline workflows, and to write parallel and modular scripts.
+
+Figure 3: sample project structure
 
 In my meta-analysis project, I originally wrote one script that performed quality control on all 28 datasets.
 Each time I found something wrong in one dataset's processing parameters, I had to re-run the data cleaning for _all_ datasets -- a time-consuming process that was a huge pain.
@@ -58,6 +73,8 @@ Makefiles also make the review process much easier, saving time and freeing rese
 With a Makefile, it is easy to go back, find, and double-check individual steps in an entire analysis, as opposed to digging through folders of spaghetti code without guidance.
 Adding new analyses also becomes easier, as new scripts can be seamlessly plugged into the Makefile, using intermediate analysis files already created from other steps in the workflow.
 And most importantly, Makefiles take care of the details, automatically updating figures and tables when their underlying inputs change, saving research parasites many hours of tedious detail-checking.
+
+Figure 4: sample makefile
 
 ## 6. Computational best practices as an act of radical self-love
 
@@ -95,6 +112,8 @@ Evan Bolyen, Jai Ram Rideout, Matthew R. Dillon, Nicholas A. Bokulich, et al. "R
 Cookie Cutter Data Science. https://drivendata.github.io/cookiecutter-data-science/. Accessed September 28, 2019.
 
 Claire Duvallet, Sean M. Gibbons, Thomas Gurry, Rafael A. Irizarry, and Eric J. Alm. "Meta-analysis of gut microbiome studies identifies disease-specific and shared responses." Nature communications 8, no. 1 (2017): 1784.
+
+Casey S. Greene, Lana X. Garmire, Jack A. Gilbert, Marylyn D. Ritchie, and Lawrence E. Hunter. "Celebrating parasites." Nature genetics 49, no. 4 (2017): 483.
 
 Gene V. Glass. "Primary, secondary, and meta-analysis of research." Educational researcher 5, no. 10 (1976): 3-8.
 
