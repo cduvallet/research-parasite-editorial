@@ -1,10 +1,10 @@
-# Data detectives, radical self-love, and humility: a research parasite's perspective
+# Data detectives, self-love, and humility: a research parasite's perspective
 
 Claire Duvallet
 
 ## Abstract
 
-Secondary analysis is an important part of the scientific process, solidifying and expanding knowledge through re-analyses of existing datasets.
+Secondary analysis solidifies and expands upon scientific knowledge through the re-analysis of existing datasets.
 However, researchers performing secondary analyses must develop specific skills to be successful, and can benefit from adopting some computational best practices.
 Recognizing this work is also key to building and supporting a community of researchers who contribute to the scientific ecosystem through secondary analyses.
 The Research Parasite Awards are one such avenue, celebrating outstanding contributions to the rigorous secondary analysis of data.
@@ -36,8 +36,7 @@ Without all of the relevant technical and clinical metadata, it is impossible to
 As a parasite, I identified three broad types of dataset-related metadata: (1) metadata linking the raw data IDs (e.g. file names, SRA run IDs) to their corresponding sample IDs, (2) metadata containing technical processing information (e.g. sequencing barcodes, sample replicate number, sampling date, etc) and (3) biological or clinical metadata (e.g. disease status, tissue type, etc).
 Here also, there are many tricks to learn, for example: looking at raw sequencing data to infer the presence or absence of primers or barcodes, making educated guesses about disease status from sample IDs, and looking in all the nooks and crannies of SRA or ENA sample descriptors.
 
-Figure 2: data components required for a successful re-analysis
-[could make a figure/schematic here, and potentially even show where things failed in my meta-analysis]
+Figure 2: Data and metadata components required for a successful re-analysis. (A) Raw sequencing data is usually labeled with an SRR Run ID or other processing ID. Raw data rarely contains information about the processing steps applied, and the research parasite must use other information to determine what processing needs to be done. (B) Technical metadata connects file names to the respective sample ID, and may also have other technical information like primer and barcode sequences. In cases where the raw sequencing data has not been separated into sample-wise files, barcodes are required to map sequences to samples. These are often the most difficult data to find. (C) Finally, study-related metadata is required to re-analyze samples. Metadata directly related to the analysis question is always necessary (i.e. disease status), but other metadata like subject ID, sampling day, replicate, etc may also be required to ensure that proper statistical comparisons are being made.
 
 ## 3. Organize yourself for success
 
@@ -46,7 +45,7 @@ Intentional project and file organization can ensure that starting over is not a
 More specifically, separating source code from the data and producing intermediate files for each step of an analysis is key to unlocking parasitic productivity (Cookie Cutter Data Science, Wilson et al. 2016).
 Clear project organization makes it easier to remember what different files are, to implement automated pipeline workflows, and to write parallel and modular scripts.
 
-Figure 3: sample project structure
+Figure 3: a sample project structure, adapted from Cookie Cutter Data Science for my meta-analysis. In microbiome projects, OTU tables are the feature tables which result from processing raw sequencing data, and which serve as the input to all analyses. (A) Overall project structure; (B, C, and D) individual folder structures.
 
 In my meta-analysis project, I originally wrote one script that performed quality control on all 28 datasets.
 Each time I found something wrong in one dataset's processing parameters, I had to re-run the data cleaning for _all_ datasets -- a time-consuming process that was a huge pain.
@@ -74,7 +73,7 @@ With a Makefile, it is easy to go back, find, and double-check individual steps 
 Adding new analyses also becomes easier, as new scripts can be seamlessly plugged into the Makefile, using intermediate analysis files already created from other steps in the workflow.
 And most importantly, Makefiles take care of the details, automatically updating figures and tables when their underlying inputs change, saving research parasites many hours of tedious detail-checking.
 
-Figure 4: sample makefile
+Figure 4: Schematic of a subset of the steps involved in the workflow for my meta-analysis. Each box contains a description of the data or analysis at that step, and arrows indicate progression through the analysis workflow. Boxes are colored according their respective location in the project structure. Dependencies between input data, intermediate files, and scripts are encoded in the Makefile, which automatically re-runs any necessary steps when input data or files are updated. For example, if the script to perform univariate steps is updated, all steps which depend on that box get re-run and updated; i.e. Figure 1, 2, and 3a are all re-made. In contrast, if the code to run the random forests is updated, only Figures 1 and S1 are updated.
 
 ## 6. Computational best practices as an act of radical self-love
 
