@@ -47,18 +47,14 @@ Clear project organization makes it easier to remember what different files are,
 
 Figure 3: a sample project structure, adapted from Cookie Cutter Data Science for my meta-analysis. In microbiome projects, OTU tables are the feature tables which result from processing raw sequencing data, and which serve as the input to all analyses. (A) Overall project structure; (B, C, and D) individual folder structures.
 
-In my meta-analysis project, I originally wrote one script that performed quality control on all 28 datasets.
-Each time I found something wrong in one dataset's processing parameters, I had to re-run the data cleaning for _all_ datasets -- a time-consuming process that was a huge pain.
-I've learned from this mistake, and now attempt to maximize the modularity of my code, even down to the first quality control steps.
-
 ## 4. Documentation is clues for future-you
 
 In a way, README's are a research parasite's lab notebook.
-Re-analyzing other people's datasets often means long and convoluted paths to insight.
+Re-analyzing other people's datasets often means long and convoluted paths form raw data to insight.
 It's important to document every step along this path: how the data was downloaded and processed, including any strange things that happened and why certain decisions were made; how the scripts and data are organized and where all the (raw) data lives; and how others can use or build upon what has been done.
 
 As a research parasite, the most likely beneficiary of thorough documentation is future-you, checking your work before submission, looking for code to do something you know you've already figured out, or going back to answer a question that woke you up in a cold sweat at 2 am.
-This was another lesson learned the hard way for me: I remember going back to finalize processing on datasets I'd downloaded over a year prior, and not finding any clues from myself to indicate what I'd done.
+This was a lesson learned the hard way for me: I remember going back to finalize processing on datasets I'd downloaded over a year prior, and not finding any clues from myself to indicate what I'd done.
 In all of these cases, it was faster to re-download the data from scratch than to time-travel into the past and remember what I had been thinking.
 
 ## 5. The life-changing magic of Makefiles
@@ -86,8 +82,9 @@ It isn't possible to enumerate all of the possible best practices or even to ide
 Throughout my PhD, I realized that being a parasite is not just about data: developing software tools that encourage non-bioinformaticians to analyze their own datasets is also key to a future where secondary analyses are the norm.
 In the microbiome field, we've seen a recent development of incredibly accessible bioinformatics tools that democratize access to computational analyses (Bolyen et al 2019).
 I hypothesize that these easy-to-use analysis tools have contributed to an increase in non-specialists generating microbiome sequencing data.
-Many microbiome-related clinical trials now include microbiome analyses as secondary endpoints or to raise the impact of a study.
-These analyses would be inaccessible without the easy-to-use software being developed by other parts of the community.
+
+For example, many microbiome-related clinical trials now include microbiome analyses as secondary endpoints or to raise the impact of a study.
+These analyses would be inaccessible without the easy-to-use software being developed by the computational microbiome community.
 Interestingly, these studies rarely dive into the full potential of their data because they are focused on their primary clinical endpoints.
 That leaves a lot of room for research parasites to come in and ask different questions of those datasets, which I think is a great byproduct of developing accessible software suites.
 
@@ -101,7 +98,7 @@ Humility and empathy is also important to recognize that while we stand on our s
 An example is data sharing: parasites might like to grumble at how hard it is to find and download raw data, but depositing data is itself a complicated process.
 Data generation is a collaborative, lengthy process, and the person depositing the data is rarely involved in every step of the data generation.
 Even after downloading and processing these 28 datasets, I myself was incredibly confused when I needed to deposit data for a different project that I worked on, and I'm sure I missed some important information that will make a future parasite grumble herself.
-Thus, not only do we need to require data sharing, but we also need to make it easier, more accessible, and more amenable to improvements and feedback, in addition to encouraging and rewarding those who do share their data (https://researchsymbionts.org/).
+Thus, not only do we need to require data sharing, but we also need to make it easier, more accessible, and more amenable to improvements and feedback, in addition to encouraging and rewarding those who do share their data (e.g. like the Research Symbiont award, a partner to the Research Parasite Award: https://researchsymbionts.org/).
 And as we're doing our parasitic research, we need to keep in mind that we are just one small part of an entire ecosystem, and that as parasites, we depend on our hosts to survive.
 
 ## References
